@@ -12,6 +12,9 @@ const Export = () => {
   const toggleConfirmModal = (id) => {
     setConfirmModal(!confirmModal);
     setSeletectedItem(id != null ? id : null);
+    if (id) {
+      getData();
+    }
   };
 
   const handleConfirm = () => {
@@ -27,7 +30,7 @@ const Export = () => {
           }
         )
         .then((data) => {
-          notification.success({ message: data.data.message });
+          notification.success({ message: "Reservation Confirmed" });
           toggleConfirmModal();
         })
         .catch((err) => {
